@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+Developed by Reality Software | www.realitysoftware.ca
+Released by Flash MP3 Player | www.flashmp3player.org
+Note: This is a free application distributed under the Creative Commons Attribution 3.0 license,
+which means you can use it in any way you want provided you keep our links intact.
+Don't want our links in the script? You can support this project by purchasing a paid
+version: www.flashmp3player.org/buy.html
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Flash MP3 Player</title>
+<script type="text/javascript">
+//<![CDATA[
+/* Expando Image Script 2008 John Davenport Scheuer
+   as first seen in http://www.dynamicdrive.com/forums/
+   username: jscheuer1 - This Notice Must Remain for Legal Use
+   */
+if (document.images){
+ (function(){
+  var cos, a = /Apple/.test(navigator.vendor), times = a? 20 : 40, speed = a? 40 : 20;
+  var expConIm = function(im){
+   im = im || window.event;
+   if (!expConIm.r.test (im.className))
+    im = im.target || im.srcElement || null;
+   if (!im || !expConIm.r.test (im.className))
+    return;
+   var e = expConIm,
+   widthHeight = function(dim){
+    return dim[0] * cos + dim[1] + 'px';
+   },
+   resize = function(){
+    cos = (1 - Math.cos((e.ims[i].jump / times) * Math.PI)) / 2;
+    im.style.width = widthHeight (e.ims[i].w);
+    im.style.height = widthHeight (e.ims[i].h);
+    if (e.ims[i].d && times > e.ims[i].jump){
+     ++e.ims[i].jump;
+     e.ims[i].timer = setTimeout(resize, speed);
+    } else if (!e.ims[i].d && e.ims[i].jump > 0){
+     --e.ims[i].jump;
+     e.ims[i].timer = setTimeout(resize, speed);
+    }
+   }, d = document.images, i = d.length - 1;
+   for (i; i > -1; --i)
+    if(d[i] == im) break;
+   i = i + im.src;
+   if (!e.ims[i]){
+    im.title = '';
+    e.ims[i] = {im : new Image(), jump : 0};
+    e.ims[i].im.onload = function(){
+     e.ims[i].w = [e.ims[i].im.width - im.width, im.width];
+     e.ims[i].h = [e.ims[i].im.height - im.height, im.height];
+     e (im);
+    };
+    e.ims[i].im.src = im.src;
+    return;
+    }
+   if (e.ims[i].timer) clearTimeout(e.ims[i].timer);
+   e.ims[i].d = !e.ims[i].d;
+   resize ();
+  };
+  expConIm.ims = {};
+  expConIm.r = new RegExp('\\bexpando\\b');
+  if (document.addEventListener){
+   document.addEventListener('mouseover', expConIm, false);
+   document.addEventListener('mouseout', expConIm, false);
+  }
+  else if (document.attachEvent){
+   document.attachEvent('onmouseover', expConIm);
+   document.attachEvent('onmouseout', expConIm);
+  }
+ })();
+}
+//]]>
+</script>
+<style>
+img.expando{
+border: none;
+margin:10px;
+vertical-align: top;
+}
+.style4 {
+	font-family: Calibri;
+	font-size: 12px;
+	color: #993300;
+}
+.style6 {font-family: Calibri; font-size: 12px; color: #990000; }
+.style7 {
+	font-family: Calibri;
+	font-size: 14px;
+}
+</style>
+<!-- Location of javascript. -->
+<script language="javascript" type="text/javascript" src="swfobject.js" ></script>
+
+</head>
+
+<body>
+<span class="style4">Passe o mouse sobre a capa do CD:</span><br />
+<img border="1" src="DISCOGRAFIA/teresa maria/capa.jpg" class="expando" width="100" /> <img border="1" src="DISCOGRAFIA/teresa maria/verso.jpg" class="expando" width="100" />
+  <br>
+  <span class="style6">Clique na música para ouvir:  </span>
+  <!-- Div that contains player. -->
+
+<div id="player">
+<h1>Flash Player Desabilitado!</h1>
+<p>Instale gratuitamente. <a href="http://www.macromedia.com/go/getflashplayer" >Clique aqui</a>.</p>
+</div>
+
+<!-- Script that embeds player. -->
+<script language="javascript" type="text/javascript">
+var so = new SWFObject("flashmp3player.swf", "player", "290", "247", "9"); // Location of swf file. You can change player width and height here (using pixels or percents).
+so.addParam("quality", "high");
+so.addVariable("content_path","mp3"); // Location of a folder with mp3 files (relative to php script).
+so.addVariable("color_path","default.xml"); // Location of xml file with color settings.
+so.addVariable("script_path","flashmp3player.php"); // Location of php script.
+so.write("player");
+</script>
+<a href="http://www.tratore.com.br/um_artista.php?id=8294" target="_blank"><span class="style7">Compre aqui</span></a><br/>
+
+<!-- 
+Please place this link anywhere on the page that uses Flash MP3 Player.
+You can style it anyway you want, but do not change or delete it.
+Read the license! Thanks. :-)
+-->
+
+</body>
+</html>

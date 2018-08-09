@@ -1,0 +1,742 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
+<head>
+<title>.::Teresa Maria::.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+/* YoxView v2.0 CSS file */
+#yoxview .yoxview_bottom{ bottom: 0; }
+#yoxview .yoxview_right{ float: right; }
+#yoxview .yoxview_left{ float: left; }
+
+#yoxview_popupWrap
+{
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 100;
+}
+#yoxview
+{
+	position: absolute;
+	font-family: Arial, Sans-Serif;
+	z-index: 999;
+	border: solid 1px #999;
+	overflow: hidden;
+	font-size: 10pt;
+	text-align: left;
+}
+#yoxview a img, #yoxview_infoPanel a img{ border: none; }
+#yoxview a:focus{ outline: none; }
+#yoxview div.yoxview_imgPanel{ position: absolute; top: 0; left: 0; }
+#yoxview div.yoxview_mediaPanel
+{ 
+	position: absolute; 
+
+	background: #191919; 
+	width: 100%; 
+	height: 100% 
+}
+#yoxview .yoxview_ctlBtn
+{
+	position: absolute; 
+	z-index: 3;
+	display: block;
+	text-decoration: none;
+	outline: none;
+	width: 50%;
+	height: 100%;
+}
+#yoxview .yoxview_ctlBtn img
+{
+	position: absolute;
+	border: none;
+	top: 50%;
+	margin-top: -22px;
+}
+#yoxview a.yoxview_ctlBtn:focus, #yoxview a.yoxview_ctlBtn:active{ outline: none; outline: none;}
+#yoxview .yoxview_notification
+{
+	width: 59px; 
+	height: 59px; 
+	position: absolute; 
+	top: 50%; 
+	left: 50%; 
+	margin-top: -30px;
+	margin-left: -30px;
+	z-index: 4;
+	opacity: 0.6;
+	filter: alpha(opacity=60);
+	background-image: url(images/sprites.png);
+	background-repeat: no-repeat;
+	display: none;
+}
+
+#yoxview #yoxview_ajaxLoader img
+{
+	padding: 13px;
+}
+#yoxview .yoxview_popupBarPanel
+{
+	position: absolute;
+	z-index: 4;
+	min-height: 70px;
+	width: 100%;
+	right: 0;
+}
+#yoxview #yoxview_menuPanel
+{ 
+	width: 145px; 
+	height: 42px; 
+	padding-top: 0px;
+	padding-right: 9px;
+	position: absolute; 
+	right: 0;
+	background: url(images/sprites.png) no-repeat left -77px;
+	background: rgba(0, 0, 0, 0.8);
+	-moz-border-radius: 0 0 0 15px;
+	-webkit-border-radius: 0 0 0 15px;
+	border-radius: 0 0 0 15px;
+	top: -42px;
+}
+
+#yoxview #yoxview_menuPanel a
+{ 
+	display: block; 
+	width: 45px; 
+	float: right; 
+	text-align: center; 
+	font-size: 0.8em; 
+	position: relative;
+	margin-top: -5px;
+	padding-bottom: 13px;
+	text-decoration: none;
+	font-family: Arial, Sans-Serif;
+}
+#yoxview #yoxview_menuPanel a span{ color: White; display: block; margin-bottom: 3px;  }
+#yoxview #yoxview_menuPanel a.last{ margin-left: 0; }
+#yoxview #yoxview_menuPanel a:focus{ outline: none; }
+#yoxview_infoPanel
+{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 0;
+	color: White;
+	z-index: 2;
+	overflow: hidden;
+}
+#yoxview_infoPanel #yoxview_infoPanelBack
+{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	left: 0;
+	top: 0;
+}
+#yoxview_infoPanel #yoxview_infoPanelContent
+{
+	position: absolute;
+	width: 100%;
+	z-index: 2;
+	top: 0;
+	left: 0;
+}
+#yoxview_infoPanel span#yoxview_count
+{
+	display: block;
+	width: 55px;
+	font-size: 0.8em;
+	float: left;
+	text-align: center;
+	padding-top: 8px;
+	color: #bbb;
+}
+#yoxview_infoPanel #yoxview_infoText
+{
+	margin: 0 55px;
+	font-size: 12pt;
+	padding: 5px 0;
+}
+#yoxview_infoPanel #yoxview_infoText #yoxview_infoTextDescription
+{
+	margin-top: 1em;
+	font-size: 10pt;
+	padding-bottom: 0.5em;
+	max-height: 200px;
+	overflow: auto;
+	padding-right: 10px;
+}
+#yoxview_infoPanel #yoxview_infoText a, #yoxview .yoxview_error a{ color: #a7d557; text-decoration: none; outline: none; }
+#yoxview_infoPanel #yoxview_infoText a:hover, #yoxview .yoxview_error a:hover{ color: #d5eeaa }
+#yoxview_infoPanel a.yoxviewInfoLink
+{
+	display: none;
+	opacity: 0.8;
+	float: right;
+	margin-right: 5px;
+	margin-top: 5px;
+}
+#yoxview_infoPanel a.yoxviewInfoLink:hover{ opacity: 1 }
+#yoxview #yoxview_helpPanel
+{
+	display: none;
+	width: 201px;
+	height: 312px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -171px;
+	margin-left: -111px;
+	z-index: 5;
+	color: White;
+	padding: 20px;
+	padding-top: 10px;
+	cursor: pointer;
+}
+#yoxview #yoxview_helpPanel h1{ font-family: Arial Black, Arial, Sans-Serif; font-size: 1em; }
+#yoxview #yoxview_helpPanel p{ margin-top: 80px; }
+#yoxview #yoxview_helpPanel span#yoxview_closeHelp{ display: block; position: absolute; bottom: 20px; left: 0; text-align: center; width: 100%; }
+#yoxview .yoxview_error
+{
+	display: block;
+	text-align: center;
+	color: White;
+	font-family: Arial, Sans-Serif;
+	font-size: 14pt;
+	top: 41%;
+	width: 100%;
+	height: 20%;
+	position: absolute;
+	padding: 10px;
+}
+#yoxview .yoxview_error .errorUrl{ font-size: 10pt; }
+#yoxview .yoxview_top{ top: 0; width: 50%; }
+#yoxview .yoxview_element{ width: 100%; height: 100%; position: absolute;  border: none; background: #333; }
+
+.yoxview-thumbnails a
+{
+	float: left;
+	margin: 4px;
+	/* For thumbnails opacity: */
+	opacity: 0.8;
+	filter: alpha(opacity=80);
+}
+.yoxview-thumbnails a:hover
+{
+	/* For thumbnails opacity: */
+	opacity: 1;
+	filter: alpha(opacity=100);
+}
+.yoxview-thumbnails a img
+{ 
+	/* Set white borders around the thumbnails, instead of the browser's default Blue: */
+	border: solid 1px #ffffff;
+}
+.yoxview-thumbnails-details{ margin-bottom: 1em; }
+.yoxview-thumbnails-details h2{ margin-bottom: 0; padding: 0; font-size: 1.2em; font-weight: bold;}
+<!--
+body {
+	background-color: #333333;
+}
+-->
+</style>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<script type='text/javascript' src='yoxview-init.js'> </script>
+
+<script type="text/javascript">
+ . NoConflict $ ();
+		    $(document).ready(function(){
+		        $(".yoxview").yoxview();
+		    });
+		</script>
+
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<!-- ImageReady Slices (WEBSITE_COMPLETO.psd) -->
+<table width="1029" height="769" border="0" align="center" cellpadding="0" cellspacing="0" id="Tabela_01">
+<tr>
+		<td colspan="21" bgcolor="#FFFFFF"><img src="imagens/header.jpg" alt="" width="1024" height="360" border="0"></td>
+<td width="10">
+			<img src="imagens/spacer.gif" width="1" height="33" alt=""></td>
+	</tr>
+	<tr>
+		<td width="28" rowspan="11" bgcolor="#FFFFFF">&nbsp;</td>
+<td colspan="4" bgcolor="#FFFFFF">
+			<a href="../index.html"><img src="imagens/fotos_03.jpg" alt="" width="72" height="31" border="0"></a></td>
+<td colspan="2" bgcolor="#FFFFFF">
+			<a href="../bio.html"><img src="imagens/fotos_04.jpg" alt="" width="58" height="31" border="0"></a></td>
+<td colspan="3" bgcolor="#FFFFFF">	  <img src="imagens/fotos_05.jpg" alt="" width="90" height="31" border="0"></td>
+<td width="154" bgcolor="#FFFFFF">
+			<a href="../discografia.html"><img src="imagens/fotos_06.jpg" alt="" width="154" height="31" border="0"></a></td>
+<td width="116" bgcolor="#FFFFFF">
+			<a href="../imprensa.html"><img src="imagens/fotos_07.jpg" alt="" width="116" height="31" border="0"></a></td>
+<td colspan="5" bgcolor="#FFFFFF">
+			<a href="../contatos.html"><img src="imagens/fotos_08.jpg" alt="" width="131" height="31" border="0"></a></td>
+	  <td width="209" bgcolor="#FFFFFF">&nbsp;</td>
+<td width="75" bgcolor="#FFFFFF">
+			<a href="http://www.youtube.com/TeresaMariaMusic" target="_blank"><img src="imagens/fotos_10.jpg" alt="" width="75" height="31" border="0"></a></td>
+<td width="45" bgcolor="#FFFFFF"><a href="http://www.facebook.com/teresamariabr.oficial" target="_blank"><img src="imagens/fotos_11.jpg" alt="" width="45" height="31" border="0"></a></td>
+		<td width="46" bgcolor="#FFFFFF">&nbsp;</td>
+<td>
+			<img src="imagens/spacer.gif" width="1" height="31" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="20" background="imagens/fotos_13.jpg" bgcolor="#FFFFFF">&nbsp;</td>
+<td>
+			<img src="imagens/spacer.gif" width="1" height="35" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="7" bgcolor="#FFFFFF">
+			<div align="right"><img src="imagens/fotos_14.jpg" width="138" height="108" alt=""></div></td>
+		<td colspan="7" bgcolor="#FFFFFF">
+			<img src="imagens/fotos_15.jpg" width="458" height="108" alt=""></td>
+<td colspan="6" rowspan="5" bgcolor="#FFFFFF">
+			<img src="imagens/fotos_16.jpg" width="400" height="339" alt=""></td>
+<td>
+			<img src="imagens/spacer.gif" width="1" height="108" alt=""></td>
+	</tr>
+	<tr>
+		<td width="5" rowspan="6" bgcolor="#FFFFFF">&nbsp;</td>
+<td colspan="13" bgcolor="#FFFFFF">&nbsp;</td>
+<td>
+			<img src="imagens/spacer.gif" width="1" height="27" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="13" bgcolor="#FFFFFF">
+			<img src="imagens/fotos_19.jpg" width="591" height="20" alt=""></td>
+<td>
+			<img src="imagens/spacer.gif" width="1" height="20" alt=""></td>
+	</tr>
+	<tr>
+		<td width="5" rowspan="4" bgcolor="#FFFFFF">&nbsp;</td>
+		<td colspan="12" bgcolor="#FFFFFF">&nbsp;</td>
+<td>
+			<img src="imagens/spacer.gif" width="1" height="25" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="11" rowspan="2" valign="top" bgcolor="#FFFFFF">
+        
+        
+        
+        <div style="height:350px; width:530px; overflow:auto; background-color: 
+#ffffff; text-align: center;padding: 5px; margin:5px ">
+<div style="width:500px">
+  
+    
+    <div class="yoxview">
+
+<a href="img1/0001.JPG"><img src="img1/thumbnails/0001.jpg"/> </a>
+<a href="img1/0002.JPG"><img src="img1/thumbnails/0002.jpg"/></a>
+<a href="img1/0003.JPG"><img src="img1/thumbnails/0003.jpg"/></a>
+<a href="img1/0004.JPG"><img src="img1/thumbnails/0004.jpg"/></a>
+<a href="img1/0005.JPG"><img src="img1/thumbnails/0005.jpg"/></a>
+<a href="img1/0006.JPG"><img src="img1/thumbnails/0006.jpg"/></a>
+<a href="img1/0007.JPG"><img src="img1/thumbnails/0007.jpg"/></a>
+<a href="img1/0009.JPG"><img src="img1/thumbnails/0009.jpg"/></a>
+<a href="img1/0012.JPG"><img src="img1/thumbnails/0012.jpg"/></a>
+<a href="img1/0011.JPG"><img src="img1/thumbnails/0011.jpg"/></a>
+<a href="img1/0012.JPG"><img src="img1/thumbnails/0012.jpg"/></a>
+<a href="img1/0013.JPG"><img src="img1/thumbnails/0013.jpg"/></a>
+<a href="img1/0014.JPG"><img src="img1/thumbnails/0014.jpg"/></a>
+<a href="img1/0015.JPG"><img src="img1/thumbnails/0015.jpg"/></a>
+<a href="img1/0016.JPG"><img src="img1/thumbnails/0016.jpg"/></a>
+<a href="img1/0017.JPG"><img src="img1/thumbnails/0017.jpg"/></a>
+<a href="img1/0019.JPG"><img src="img1/thumbnails/0019.jpg"/></a>
+<a href="img1/0020.JPG"><img src="img1/thumbnails/0020.jpg"/></a>
+<a href="img1/0021.JPG"><img src="img1/thumbnails/0021.jpg"/></a>
+<a href="img1/0022.JPG"><img src="img1/thumbnails/0022.jpg"/></a>
+<a href="img1/0023.JPG"><img src="img1/thumbnails/0023.jpg"/></a>
+<a href="img1/0024.JPG"><img src="img1/thumbnails/0024.jpg"/></a>
+<a href="img1/0025.JPG"><img src="img1/thumbnails/0025.jpg"/></a>
+<a href="img1/0026.JPG"><img src="img1/thumbnails/0026.jpg"/></a>
+<a href="img1/0027.JPG"><img src="img1/thumbnails/0027.jpg"/></a>
+<a href="img1/0028.JPG"><img src="img1/thumbnails/0028.jpg"/></a>
+<a href="img1/0029.JPG"><img src="img1/thumbnails/0029.jpg"/></a>
+<a href="img1/0030.JPG"><img src="img1/thumbnails/0030.jpg"/></a>
+<a href="img1/0031.JPG"><img src="img1/thumbnails/0031.jpg"/></a>
+<a href="img1/0032.JPG"><img src="img1/thumbnails/0032.jpg"/></a>
+<a href="img1/0033.JPG"><img src="img1/thumbnails/0033.jpg"/></a>
+<a href="img1/0035.JPG"><img src="img1/thumbnails/0035.jpg"/></a>
+<a href="img1/0036.JPG"><img src="img1/thumbnails/0036.jpg"/></a>
+<a href="img1/0038.JPG"><img src="img1/thumbnails/0038.jpg"/></a>
+<a href="img1/0040.JPG"><img src="img1/thumbnails/0040.jpg"/></a>
+<a href="img1/0041.JPG"><img src="img1/thumbnails/0041.jpg"/></a>
+<a href="img1/0042.JPG"><img src="img1/thumbnails/0042.jpg"/></a>
+<a href="img1/0043.JPG"><img src="img1/thumbnails/0043.jpg"/></a>
+<a href="img1/0044.JPG"><img src="img1/thumbnails/0044.jpg"/></a>
+<a href="img1/0045.JPG"><img src="img1/thumbnails/0045.jpg"/></a>
+<a href="img1/0046.JPG"><img src="img1/thumbnails/0046.jpg"/></a>
+<a href="img1/0048.JPG"><img src="img1/thumbnails/0048.jpg"/></a>
+<a href="img1/0049.JPG"><img src="img1/thumbnails/0049.jpg"/></a>
+<a href="img1/0050.JPG"><img src="img1/thumbnails/0050.jpg"/></a>
+<a href="img1/0051.JPG"><img src="img1/thumbnails/0051.jpg"/></a>
+<a href="img1/0052.JPG"><img src="img1/thumbnails/0052.jpg"/></a>
+<a href="img1/0053.JPG"><img src="img1/thumbnails/0053.jpg"/></a>
+<a href="img1/0054.JPG"><img src="img1/thumbnails/0054.jpg"/></a>
+<a href="img1/0055.JPG"><img src="img1/thumbnails/0055.jpg"/></a>
+<a href="img1/0056.JPG"><img src="img1/thumbnails/0056.jpg"/></a>
+<a href="img1/0057.JPG"><img src="img1/thumbnails/0057.jpg"/></a>
+<a href="img1/0058.JPG"><img src="img1/thumbnails/0058.jpg"/></a>
+<a href="img1/0059.JPG"><img src="img1/thumbnails/0059.jpg"/></a>
+<a href="img1/0060.JPG"><img src="img1/thumbnails/0060.jpg"/></a>
+<a href="img1/0061.JPG"><img src="img1/thumbnails/0061.jpg"/></a>
+<a href="img1/0062.JPG"><img src="img1/thumbnails/0062.jpg"/></a>
+<a href="img1/0063.JPG"><img src="img1/thumbnails/0063.jpg"/></a>
+<a href="img1/0064.JPG"><img src="img1/thumbnails/0064.jpg"/></a>
+<a href="img1/0066.JPG"><img src="img1/thumbnails/0066.jpg"/></a>
+<a href="img1/0067.JPG"><img src="img1/thumbnails/0067.jpg"/></a>
+<a href="img1/0068.JPG"><img src="img1/thumbnails/0068.jpg"/></a>
+<a href="img1/0069.JPG"><img src="img1/thumbnails/0069.jpg"/></a>
+<a href="img1/0070.JPG"><img src="img1/thumbnails/0070.jpg"/></a>
+<a href="img1/0071.JPG"><img src="img1/thumbnails/0071.jpg"/></a>
+<a href="img1/0072.JPG"><img src="img1/thumbnails/0072.jpg"/></a>
+<a href="img1/0073.JPG"><img src="img1/thumbnails/0073.jpg"/></a>
+
+<a href="img2/01.JPG"><img src="img2/thumbnails/01.JPG"/></a>
+<a href="img2/02.JPG"><img src="img2/thumbnails/02.JPG"/></a>
+<a href="img2/03.JPG"><img src="img2/thumbnails/03.JPG"/></a>
+<a href="img2/04.JPG"><img src="img2/thumbnails/04.JPG"/></a>
+<a href="img2/05.JPG"><img src="img2/thumbnails/05.JPG"/></a>
+<a href="img2/06.JPG"><img src="img2/thumbnails/06.JPG"/></a>
+<a href="img2/07.JPG"><img src="img2/thumbnails/07.JPG"/></a>
+<a href="img2/08.JPG"><img src="img2/thumbnails/08.JPG"/></a>
+<a href="img2/09.JPG"><img src="img2/thumbnails/09.JPG"/></a>
+<a href="img2/10.JPG"><img src="img2/thumbnails/10.JPG"/></a>
+<a href="img2/11.JPG"><img src="img2/thumbnails/11.JPG"/></a>
+<a href="img2/12.JPG"><img src="img2/thumbnails/12.JPG"/></a>
+<a href="img2/13.JPG"><img src="img2/thumbnails/13.JPG"/></a>
+<a href="img2/14.JPG"><img src="img2/thumbnails/14.JPG"/></a>
+<a href="img2/15.JPG"><img src="img2/thumbnails/15.JPG"/></a>
+<a href="img2/16.JPG"><img src="img2/thumbnails/16.JPG"/></a>
+<a href="img2/17.JPG"><img src="img2/thumbnails/17.JPG"/></a>
+<a href="img2/18.JPG"><img src="img2/thumbnails/18.JPG"/></a>
+<a href="img2/19.JPG"><img src="img2/thumbnails/19.JPG"/></a>
+<a href="img2/20.JPG"><img src="img2/thumbnails/20.JPG"/></a>
+<a href="img2/21.JPG"><img src="img2/thumbnails/21.JPG"/></a>
+<a href="img2/22.JPG"><img src="img2/thumbnails/22.JPG"/></a>
+<a href="img2/23.JPG"><img src="img2/thumbnails/23.JPG"/></a>
+<a href="img2/24.JPG"><img src="img2/thumbnails/24.JPG"/></a>
+<a href="img2/25.JPG"><img src="img2/thumbnails/25.JPG"/></a>
+<a href="img2/26.JPG"><img src="img2/thumbnails/26.JPG"/></a>
+<a href="img3/001sp.JPG"><img src="img3/thumbnails/001sp.JPG"/></a>
+
+<a href="img7/001.jpg"><img src="img7/thumbnails/001.jpg"/></a>
+<a href="img7/002.jpg"><img src="img7/thumbnails/002.jpg"/></a>
+<a href="img7/003.jpg"><img src="img7/thumbnails/003.jpg"/></a>
+<a href="img7/004.jpg"><img src="img7/thumbnails/004.jpg"/></a>
+<a href="img7/005.jpg"><img src="img7/thumbnails/005.jpg"/></a>
+<a href="img7/006.jpg"><img src="img7/thumbnails/006.jpg"/></a>
+<a href="img7/007.jpg"><img src="img7/thumbnails/007.jpg"/></a>
+<a href="img7/008.jpg"><img src="img7/thumbnails/008.jpg"/></a>
+<a href="img7/009.jpg"><img src="img7/thumbnails/009.jpg"/></a>
+<a href="img7/010.jpg"><img src="img7/thumbnails/010.jpg"/></a>
+<a href="img7/011.jpg"><img src="img7/thumbnails/011.jpg"/></a>
+<a href="img7/012.jpg"><img src="img7/thumbnails/012.jpg"/></a>
+<a href="img7/013.jpg"><img src="img7/thumbnails/013.jpg"/></a>
+<a href="img7/014.jpg"><img src="img7/thumbnails/014.jpg"/></a>
+<a href="img7/015.jpg"><img src="img7/thumbnails/015.jpg"/></a>
+<a href="img7/016.jpg"><img src="img7/thumbnails/016.jpg"/></a>
+
+<a href="img3/001.JPG"><img src="img3/thumbnails/001.JPG"/></a>
+<a href="img3/001b.JPG"><img src="img3/thumbnails/001b.JPG"/></a>
+<a href="img3/002b.JPG"><img src="img3/thumbnails/002b.JPG"/></a>
+<a href="img3/002c.JPG"><img src="img3/thumbnails/002c.JPG"/></a>
+<a href="img3/002d.JPG"><img src="img3/thumbnails/002d.JPG"/></a>
+<a href="img3/003.JPG"><img src="img3/thumbnails/003.JPG"/></a>
+<a href="img3/004b.JPG"><img src="img3/thumbnails/004b.JPG"/></a>
+<a href="img3/004c.JPG"><img src="img3/thumbnails/004c.JPG"/></a>
+<a href="img3/005.JPG"><img src="img3/thumbnails/005.JPG"/></a>
+<a href="img3/005b.JPG"><img src="img3/thumbnails/005b.JPG"/></a>
+<a href="img3/006b.JPG"><img src="img3/thumbnails/006b.JPG"/></a>
+<a href="img3/007.JPG"><img src="img3/thumbnails/007.JPG"/></a>
+<a href="img3/007b.JPG"><img src="img3/thumbnails/007b.JPG"/></a>
+<a href="img3/007c.JPG"><img src="img3/thumbnails/007c.JPG"/></a>
+<a href="img3/0008.JPG"><img src="img3/thumbnails/0008.JPG"/></a>
+<a href="img3/008.JPG"><img src="img3/thumbnails/008.JPG"/></a>
+<a href="img3/008b.JPG"><img src="img3/thumbnails/008b.JPG"/></a>
+<a href="img3/008c.JPG"><img src="img3/thumbnails/008c.JPG"/></a>
+<a href="img3/009.JPG"><img src="img3/thumbnails/009.JPG"/></a>
+<a href="img3/009b.JPG"><img src="img3/thumbnails/009b.JPG"/></a>
+<a href="img3/0010.JPG"><img src="img3/thumbnails/0010.JPG"/></a>
+<a href="img3/010.JPG"><img src="img3/thumbnails/010.JPG"/></a>
+<a href="img3/0012.JPG"><img src="img3/thumbnails/0012.JPG"/></a>
+<a href="img3/012.JPG"><img src="img3/thumbnails/012.JPG"/></a>
+<a href="img3/0013b.JPG"><img src="img3/thumbnails/0013b.JPG"/></a>
+<a href="img3/0016.JPG"><img src="img3/thumbnails/0016.JPG"/></a>
+<a href="img3/0017.JPG"><img src="img3/thumbnails/0017.JPG"/></a>
+<a href="img3/017.JPG"><img src="img3/thumbnails/017.JPG"/></a>
+<a href="img3/0018.JPG"><img src="img3/thumbnails/0018.JPG"/></a>
+<a href="img3/018.JPG"><img src="img3/thumbnails/018.JPG"/></a>
+<a href="img3/0019.JPG"><img src="img3/thumbnails/0019.JPG"/></a>
+<a href="img3/0021.JPG"><img src="img3/thumbnails/0021.JPG"/></a>
+<a href="img3/022.JPG"><img src="img3/thumbnails/022.JPG"/></a>
+<a href="img3/0027.JPG"><img src="img3/thumbnails/0027.JPG"/></a>
+<a href="img3/028.JPG"><img src="img3/thumbnails/028.JPG"/></a>
+<a href="img3/0031.JPG"><img src="img3/thumbnails/0031.JPG"/></a>
+<a href="img3/031.JPG"><img src="img3/thumbnails/031.JPG"/></a>
+<a href="img3/036.JPG"><img src="img3/thumbnails/036.JPG"/></a>
+<a href="img3/037.JPG"><img src="img3/thumbnails/037.JPG"/></a>
+<a href="img3/038.JPG"><img src="img3/thumbnails/038.JPG"/></a>
+<a href="img3/039.JPG"><img src="img3/thumbnails/039.JPG"/></a>
+<a href="img3/041.JPG"><img src="img3/thumbnails/041.JPG"/></a>
+<a href="img3/042.JPG"><img src="img3/thumbnails/042.JPG"/></a>
+<a href="img3/043.JPG"><img src="img3/thumbnails/043.JPG"/></a>
+<a href="img3/047.JPG"><img src="img3/thumbnails/047.JPG"/></a>
+<a href="img3/048.JPG"><img src="img3/thumbnails/048.JPG"/></a>
+<a href="img3/049.JPG"><img src="img3/thumbnails/049.JPG"/></a>
+<a href="img3/050.JPG"><img src="img3/thumbnails/050.JPG"/></a>
+<a href="img3/052.JPG"><img src="img3/thumbnails/052.JPG"/></a>
+<a href="img3/053.JPG"><img src="img3/thumbnails/053.JPG"/></a>
+<a href="img3/054.JPG"><img src="img3/thumbnails/054.JPG"/></a>
+<a href="img3/055.JPG"><img src="img3/thumbnails/055.JPG"/></a>
+<a href="img3/056.JPG"><img src="img3/thumbnails/056.JPG"/></a>
+<a href="img3/057.JPG"><img src="img3/thumbnails/057.JPG"/></a>
+<a href="img3/058.JPG"><img src="img3/thumbnails/058.JPG"/></a>
+<a href="img3/061.JPG"><img src="img3/thumbnails/061.JPG"/></a>
+<a href="img3/562417_449946248352586_1736273837_n.JPG"><img src="img3/thumbnails/562417_449946248352586_1736273837_n.JPG"/></a>
+<a href="img3/DSC09644.JPG"><img src="img3/thumbnails/DSC09644.JPG"/></a>
+<a href="img3/DSC09663.JPG"><img src="img3/thumbnails/DSC09663.JPG"/></a>
+<a href="img3/DSC09688.JPG"><img src="img3/thumbnails/DSC09688.JPG"/></a>
+<a href="img3/DSC09694.JPG"><img src="img3/thumbnails/DSC09694.JPG"/></a>
+<a href="img3/DSC09698.JPG"><img src="img3/thumbnails/DSC09698.JPG"/></a>
+<a href="img3/DSC09894.JPG"><img src="img3/thumbnails/DSC09894.JPG"/></a>
+<a href="img3/DSC09895.JPG"><img src="img3/thumbnails/DSC09895.JPG"/></a>
+<a href="img3/DSC09998.JPG"><img src="img3/thumbnails/DSC09998.JPG"/></a>
+<a href="img3/DSCF2004.JPG"><img src="img3/thumbnails/DSCF2004.JPG"/></a>
+<a href="img3/DSCF2475b.JPG"><img src="img3/thumbnails/DSCF2475b.JPG"/></a>
+<a href="img3/DSCF2478.JPG"><img src="img3/thumbnails/DSCF2478.JPG"/></a>
+<a href="img3/DSCF2480.JPG"><img src="img3/thumbnails/DSCF2480.JPG"/></a>
+<a href="img3/DSCF2504.JPG"><img src="img3/thumbnails/DSCF2504.JPG"/></a>
+<a href="img3/DSCN2209.JPG"><img src="img3/thumbnails/DSCN2209.JPG"/></a>
+<a href="img3/DSCN2222.JPG"><img src="img3/thumbnails/DSCN2222.JPG"/></a>
+<a href="img3/DSCN2265.JPG"><img src="img3/thumbnails/DSCN2265.JPG"/></a>
+<a href="img3/DSCN2273.JPG"><img src="img3/thumbnails/DSCN2273.JPG"/></a>
+<a href="img3/DSCN2385.JPG"><img src="img3/thumbnails/DSCN2385.JPG"/></a>
+<a href="img3/Festa.JPG"><img src="img3/thumbnails/Festa.JPG"/></a>
+<a href="img3/Festa1.JPG"><img src="img3/thumbnails/Festa1.JPG"/></a>
+<a href="img3/Festa3.JPG"><img src="img3/thumbnails/Festa3.JPG"/></a>
+<a href="img3/Festa4.JPG"><img src="img3/thumbnails/Festa4.JPG"/></a>
+<a href="img3/fim.JPG"><img src="img3/thumbnails/fim.JPG"/></a>
+<a href="img3/final.JPG"><img src="img3/thumbnails/final.JPG"/></a>
+
+
+<a href="img4/090BR.jpg"><img src="img4/thumbnails/090BR.jpg"/></a>
+<a href="img4/092BR.jpg"><img src="img4/thumbnails/092BR.jpg"/></a>
+<a href="img4/094BR.jpg"><img src="img4/thumbnails/094BR.jpg"/></a>
+<a href="img4/095BR.jpg"><img src="img4/thumbnails/095BR.jpg"/></a>
+<a href="img4/096BR.jpg"><img src="img4/thumbnails/096BR.jpg"/></a>
+<a href="img4/097BR.jpg"><img src="img4/thumbnails/097BR.jpg"/></a>
+<a href="img4/098BR.jpg"><img src="img4/thumbnails/098BR.jpg"/></a>
+<a href="img4/099BR.jpg"><img src="img4/thumbnails/099BR.jpg"/></a>
+
+
+<a href="img5/008UY.jpg"><img src="img5/thumbnails/008UY.jpg"/></a>
+<a href="img5/009BR.jpg"><img src="img5/thumbnails/009BR.jpg"/></a>
+<a href="img5/025BR.jpg"><img src="img5/thumbnails/025BR.jpg"/></a>
+<a href="img5/028BR.jpg"><img src="img5/thumbnails/028BR.jpg"/></a>
+<a href="img5/029BR.jpg"><img src="img5/thumbnails/029BR.jpg"/></a>
+<a href="img5/035BR.jpg"><img src="img5/thumbnails/035BR.jpg"/></a>
+<a href="img5/038BR.jpg"><img src="img5/thumbnails/038BR.jpg"/></a>
+<a href="img5/040BR.jpg"><img src="img5/thumbnails/040BR.jpg"/></a>
+<a href="img5/042BR.jpg"><img src="img5/thumbnails/042BR.jpg"/></a>
+<a href="img5/043BR.jpg"><img src="img5/thumbnails/043BR.jpg"/></a>
+<a href="img5/044BR.jpg"><img src="img5/thumbnails/044BR.jpg"/></a>
+<a href="img5/046BR.jpg"><img src="img5/thumbnails/046BR.jpg"/></a>
+<a href="img5/064BR.jpg"><img src="img5/thumbnails/064BR.jpg"/></a>
+<a href="img5/065BR.jpg"><img src="img5/thumbnails/065BR.jpg"/></a>
+<a href="img5/066BR.jpg"><img src="img5/thumbnails/066BR.jpg"/></a>
+<a href="img5/067RJ.jpg"><img src="img5/thumbnails/067RJ.jpg"/></a>
+<a href="img5/068RJ.jpg"><img src="img5/thumbnails/068RJ.jpg"/></a>
+<a href="img5/069RJ.jpg"><img src="img5/thumbnails/069RJ.jpg"/></a>
+
+
+<a href="img6/001.jpg"><img src="img6/thumbnails/001.jpg"/></a>
+<a href="img6/digitalizar0004.jpg"><img src="img6/thumbnails/digitalizar0004.jpg"/></a>
+<a href="img6/digitalizar0005.jpg"><img src="img6/thumbnails/digitalizar0005.jpg"/></a>
+<a href="img6/digitalizar0006.jpg"><img src="img6/thumbnails/digitalizar0006.jpg"/></a>
+<a href="img6/digitalizar0007.jpg"><img src="img6/thumbnails/digitalizar0007.jpg"/></a>
+<a href="img6/digitalizar0008.jpg"><img src="img6/thumbnails/digitalizar0008.jpg"/></a>
+<a href="img6/digitalizar0009.jpg"><img src="img6/thumbnails/digitalizar0009.jpg"/></a>
+<a href="img6/digitalizar00025.jpg"><img src="img6/thumbnails/digitalizar00025.jpg"/></a>
+<a href="img6/digitalizar00026.jpg"><img src="img6/thumbnails/digitalizar00026.jpg"/></a>
+
+<a href="img8/0001NOR.jpg"><img src="img8/thumbnails/0001NOR.jpg"/></a>
+<a href="img8/0002NOR.jpg"><img src="img8/thumbnails/0002NOR.jpg"/></a>
+<a href="img8/0003NOR.jpg"><img src="img8/thumbnails/0003NOR.jpg"/></a>
+<a href="img8/0004NOR.jpg"><img src="img8/thumbnails/0004NOR.jpg"/></a>
+<a href="img8/0005NOR.jpg"><img src="img8/thumbnails/0005NOR.jpg"/></a>
+<a href="img8/0006NOR.jpg"><img src="img8/thumbnails/0006NOR.jpg"/></a>
+<a href="img8/0007NOR.jpg"><img src="img8/thumbnails/0007NOR.jpg"/></a>
+<a href="img8/0008NOR.jpg"><img src="img8/thumbnails/0008NOR.jpg"/></a>
+<a href="img8/0009NOR.jpg"><img src="img8/thumbnails/0009NOR.jpg"/></a>
+<a href="img8/0010NOR.jpg"><img src="img8/thumbnails/0010NOR.jpg"/></a>
+<a href="img8/0011NOR.jpg"><img src="img8/thumbnails/0011NOR.jpg"/></a>
+<a href="img8/0012NOR.jpg"><img src="img8/thumbnails/0012NOR.jpg"/></a>
+<a href="img8/0013NOR.jpg"><img src="img8/thumbnails/0013NOR.jpg"/></a>
+<a href="img8/0014NOR.jpg"><img src="img8/thumbnails/0014NOR.jpg"/></a>
+<a href="img8/0015NOR.jpg"><img src="img8/thumbnails/0015NOR.jpg"/></a>
+<a href="img8/0016NOR.jpg"><img src="img8/thumbnails/0016NOR.jpg"/></a>
+<a href="img8/0017NOR.jpg"><img src="img8/thumbnails/0017NOR.jpg"/></a>
+<a href="img8/0018NOR.jpg"><img src="img8/thumbnails/0018NOR.jpg"/></a>
+<a href="img8/0019NOR.jpg"><img src="img8/thumbnails/0019NOR.jpg"/></a>
+<a href="img8/0020NOR.jpg"><img src="img8/thumbnails/0020NOR.jpg"/></a>
+<a href="img8/0021NOR.jpg"><img src="img8/thumbnails/0021NOR.jpg"/></a>
+<a href="img8/0022NOR.jpg"><img src="img8/thumbnails/0022NOR.jpg"/></a>
+<a href="img8/0023NOR.jpg"><img src="img8/thumbnails/0023NOR.jpg"/></a>
+<a href="img8/0024NOR.jpg"><img src="img8/thumbnails/0024NOR.jpg"/></a>
+<a href="img8/0025NOR.jpg"><img src="img8/thumbnails/0025NOR.jpg"/></a>
+<a href="img8/0026NOR.jpg"><img src="img8/thumbnails/0026NOR.jpg"/></a>
+<a href="img8/0027NOR.jpg"><img src="img8/thumbnails/0027NOR.jpg"/></a>
+<a href="img8/0028NOR.jpg"><img src="img8/thumbnails/0028NOR.jpg"/></a>
+<a href="img8/0029NOR.jpg"><img src="img8/thumbnails/0029NOR.jpg"/></a>
+<a href="img8/0030NOR.jpg"><img src="img8/thumbnails/0030NOR.jpg"/></a>
+<a href="img8/0031NOR.jpg"><img src="img8/thumbnails/0031NOR.jpg"/></a>
+<a href="img8/0032NOR.jpg"><img src="img8/thumbnails/0032NOR.jpg"/></a>
+<a href="img8/0033NOR.jpg"><img src="img8/thumbnails/0033NOR.jpg"/></a>
+<a href="img8/0034NOR.jpg"><img src="img8/thumbnails/0034NOR.jpg"/></a>
+<a href="img8/0035NOR.jpg"><img src="img8/thumbnails/0035NOR.jpg"/></a>
+<a href="img8/0036NOR.jpg"><img src="img8/thumbnails/0036NOR.jpg"/></a>
+<a href="img8/0037NOR.jpg"><img src="img8/thumbnails/0037NOR.jpg"/></a>
+<a href="img8/0038NOR.jpg"><img src="img8/thumbnails/0038NOR.jpg"/></a>
+<a href="img8/0039NOR.jpg"><img src="img8/thumbnails/0039NOR.jpg"/></a>
+<a href="img8/0041NOR.jpg"><img src="img8/thumbnails/0041NOR.jpg"/></a>
+<a href="img8/0042NOR.jpg"><img src="img8/thumbnails/0042NOR.jpg"/></a>
+<a href="img8/0043NOR.jpg"><img src="img8/thumbnails/0043NOR.jpg"/></a>
+<a href="img8/0044NOR.jpg"><img src="img8/thumbnails/0044NOR.jpg"/></a>
+<a href="img8/0051NOR.jpg"><img src="img8/thumbnails/0051NOR.jpg"/></a>
+<a href="img8/0053NOR.jpg"><img src="img8/thumbnails/0053NOR.jpg"/></a>
+<a href="img8/0054NOR.jpg"><img src="img8/thumbnails/0054NOR.jpg"/></a>
+<a href="img8/0055NOR.jpg"><img src="img8/thumbnails/0055NOR.jpg"/></a>
+<a href="img8/0056NOR.jpg"><img src="img8/thumbnails/0056NOR.jpg"/></a>
+<a href="img8/0057NOR.jpg"><img src="img8/thumbnails/0057NOR.jpg"/></a>
+<a href="img8/0058NOR.jpg"><img src="img8/thumbnails/0058NOR.jpg"/></a>
+<a href="img8/0059NOR.jpg"><img src="img8/thumbnails/0059NOR.jpg"/></a>
+<a href="img8/0060NOR.jpg"><img src="img8/thumbnails/0060NOR.jpg"/></a>
+<a href="img8/0061NOR.jpg"><img src="img8/thumbnails/0061NOR.jpg"/></a>
+<a href="img8/0062NOR.jpg"><img src="img8/thumbnails/0062NOR.jpg"/></a>
+<a href="img8/0063NOR.jpg"><img src="img8/thumbnails/0063NOR.jpg"/></a>
+<a href="img8/0064NOR.jpg"><img src="img8/thumbnails/0064NOR.jpg"/></a>
+<a href="img8/0065NOR.jpg"><img src="img8/thumbnails/0065NOR.jpg"/></a>
+<a href="img8/0066NOR.jpg"><img src="img8/thumbnails/0066NOR.jpg"/></a>
+<a href="img8/0067NOR.jpg"><img src="img8/thumbnails/0067NOR.jpg"/></a>
+<a href="img8/0068NOR.jpg"><img src="img8/thumbnails/0068NOR.jpg"/></a>
+<a href="img8/0069NOR.jpg"><img src="img8/thumbnails/0069NOR.jpg"/></a>
+<a href="img8/0080NOR.jpg"><img src="img8/thumbnails/0080NOR.jpg"/></a>
+<a href="img8/0081NOR.jpg"><img src="img8/thumbnails/0081NOR.jpg"/></a>
+<a href="img8/0082NOR.jpg"><img src="img8/thumbnails/0082NOR.jpg"/></a>
+<a href="img8/0083NOR.jpg"><img src="img8/thumbnails/0083NOR.jpg"/></a>
+<a href="img8/0084NOR.jpg"><img src="img8/thumbnails/0084NOR.jpg"/></a>
+<a href="img8/0085NOR.jpg"><img src="img8/thumbnails/0085NOR.jpg"/></a>
+<a href="img8/0086NOR.jpg"><img src="img8/thumbnails/0086NOR.jpg"/></a>
+<a href="img8/0087NOR.jpg"><img src="img8/thumbnails/0087NOR.jpg"/></a>
+<a href="img8/0088NOR.jpg"><img src="img8/thumbnails/0088NOR.jpg"/></a>
+<a href="img8/0089NOR.jpg"><img src="img8/thumbnails/0089NOR.jpg"/></a>
+<a href="img8/0090NOR.jpg"><img src="img8/thumbnails/0090NOR.jpg"/></a>
+<a href="img8/0091NOR.jpg"><img src="img8/thumbnails/0091NOR.jpg"/></a>
+<a href="img8/0092NOR.jpg"><img src="img8/thumbnails/0092NOR.jpg"/></a>
+<a href="img8/0095NOR.jpg"><img src="img8/thumbnails/0095NOR.jpg"/></a>
+
+
+
+
+</div>
+
+</div></div>
+        
+        
+        
+        
+        
+        
+        
+        </td>
+		<td width="32" rowspan="4" bgcolor="#FFFFFF">&nbsp;</td>
+<td>
+			<img src="imagens/spacer.gif" width="1" height="159" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="6" rowspan="3" background="imagens/fotos_24.jpg" bgcolor="#FFFFFF">&nbsp;</td>
+<td>
+			<img src="imagens/spacer.gif" width="1" height="225" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="3" bgcolor="#FFFFFF">&nbsp;</td>
+		<td colspan="7" rowspan="2" bgcolor="#FFFFFF">&nbsp;</td>
+<td width="42" rowspan="2" bgcolor="#FFFFFF">&nbsp;</td>
+<td>
+			<img src="imagens/spacer.gif" width="1" height="22" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="3" background="imagens/fotos_28.jpg" bgcolor="#FFFFFF">
+			<a href="http://www.tratore.com.br/um_artista.php?id=8294" target="_blank"><img src="imagens/fotos_28.jpg" alt="" width="49" height="51" border="0"></a></td>
+	  <td colspan="2" bgcolor="#FFFFFF">&nbsp;</td>
+<td>
+			<img src="imagens/spacer.gif" width="1" height="51" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="5" background="imagens/fotos_30.jpg" bgcolor="#FFFFFF">
+			<a href="http://www.flickr.com/photos/thiagorresende" target="_blank"><img src="imagens/fotos_30.jpg" alt="" width="100" height="32" border="0"></a></td>
+<td colspan="3" background="imagens/fotos_31.jpg">
+			<a href="http://junior-resende.com" target="_blank"><img src="imagens/fotos_31.jpg" alt="" width="95" height="32" border="0"></a></td>
+	  <td colspan="7" bgcolor="#FFFFFF"><a href="http://atofotografico.wordpress.com" target="_blank"><img src="../imagens/fotos.jpg" alt="" width="105" height="32" border="0" /></a></td>
+<td colspan="5" bgcolor="#FFFFFF">
+			<img src="imagens/fotos_33.jpg" width="385" height="32" alt=""></td>
+<td>
+			<img src="imagens/spacer.gif" width="1" height="32" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="imagens/spacer.gif" width="28" height="1" alt=""></td>
+		<td>
+			<img src="imagens/spacer.gif" width="5" height="1" alt=""></td>
+		<td>
+			<img src="imagens/spacer.gif" width="1" height="1" alt=""></td>
+		<td width="43">
+			<img src="imagens/spacer.gif" width="43" height="1" alt=""></td>
+		<td width="23">
+			<img src="imagens/spacer.gif" width="23" height="1" alt=""></td>
+		<td width="28">
+			<img src="imagens/spacer.gif" width="28" height="1" alt=""></td>
+		<td width="30">
+			<img src="imagens/spacer.gif" width="30" height="1" alt=""></td>
+		<td width="8">
+			<img src="imagens/spacer.gif" width="8" height="1" alt=""></td>
+		<td width="57">
+			<img src="imagens/spacer.gif" width="57" height="1" alt=""></td>
+		<td width="25">
+			<img src="imagens/spacer.gif" width="25" height="1" alt=""></td>
+		<td>
+			<img src="imagens/spacer.gif" width="154" height="1" alt=""></td>
+		<td>
+			<img src="imagens/spacer.gif" width="116" height="1" alt=""></td>
+		<td width="32">
+			<img src="imagens/spacer.gif" width="32" height="1" alt=""></td>
+		<td>
+			<img src="imagens/spacer.gif" width="42" height="1" alt=""></td>
+		<td>
+			<img src="imagens/spacer.gif" width="32" height="1" alt=""></td>
+		<td width="15">
+			<img src="imagens/spacer.gif" width="15" height="1" alt=""></td>
+		<td width="10">
+			<img src="imagens/spacer.gif" width="10" height="1" alt=""></td>
+		<td>
+			<img src="imagens/spacer.gif" width="209" height="1" alt=""></td>
+		<td>
+			<img src="imagens/spacer.gif" width="75" height="1" alt=""></td>
+		<td>
+			<img src="imagens/spacer.gif" width="45" height="1" alt=""></td>
+		<td>
+			<img src="imagens/spacer.gif" width="46" height="1" alt=""></td>
+		<td></td>
+	</tr>
+</table>
+<!-- End ImageReady Slices -->
+</body>
+</html>
